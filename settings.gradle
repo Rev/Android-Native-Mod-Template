@@ -1,0 +1,2 @@
+rootProject.name = "Android Mod Template"
+include ':app'
