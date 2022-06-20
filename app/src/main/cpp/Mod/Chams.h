@@ -86,6 +86,10 @@ void glDrawElements(GLenum mode, GLsizei count, GLenum type, const void *indices
 
     if(isShader() > 0)
     {
+        /* LOGDEBUG("Count: %i", count); By using this, you can get the count from the shader. Logging the count from '_BumpMap' gives you 10716, 1116, 8868, 5394. So, if you were to do
+         * if(count == 10716 || count == 1116 || count == 8868 || count == 5394), you wouldn't need to use if(isShader() > 0). */
+
+
         /* Base-Colour Chams: https://i.imgur.com/Mab5QyF.png
         The code below will always use the same colour on the shader, no matter the depth.
 
@@ -184,8 +188,8 @@ void isChams()
 
     else
     {
-        ARMPatch::hook((void *)isglGetUniformLocationAddress, (void *)&glGetUniformLocation, (void **)&old_glGetUniformLocation);
-        ARMPatch::hook((void *)isglDrawElementsAddress, (void *)&glDrawElements, (void **)&old_glDrawElements);
+        ARMPatch::hook((void *)isglGetUniformLocationAddress, (void *) &glGetUniformLocation, (void **) &old_glGetUniformLocation);
+        ARMPatch::hook((void *)isglDrawElementsAddress, (void *) &glDrawElements, (void **) &old_glDrawElements);
     }
 }
 
