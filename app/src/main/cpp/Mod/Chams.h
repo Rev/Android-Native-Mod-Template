@@ -1,3 +1,9 @@
+//
+//  Chams.h
+//
+//  Created by Rev on 4/06/2022.
+//
+
 #ifndef CHAMS_H
 #define CHAMS_H
 
@@ -32,7 +38,7 @@ string isDump(const char *name)
     static string isTotalShaders;
 
     for (const auto &isAddTo: isShaders)
-        isTotalShaders += (isAddTo + "\n"); // vector<string> to string variable, with a new line added per shader.
+        isTotalShaders += (isAddTo + "\n"); // Adding whatever is added to the string vector to isTotalShaders, with a new line added per shader.
 
     return isTotalShaders.c_str();
 }
@@ -188,8 +194,8 @@ void isChams()
 
     else
     {
-        ARMPatch::hook((void *)isglGetUniformLocationAddress, (void *) &glGetUniformLocation, (void **) &old_glGetUniformLocation);
-        ARMPatch::hook((void *)isglDrawElementsAddress, (void *) &glDrawElements, (void **) &old_glDrawElements);
+        ARMPatch::hook((void *) isglGetUniformLocationAddress, (void *) &glGetUniformLocation, (void **) &old_glGetUniformLocation);
+        ARMPatch::hook((void *) isglDrawElementsAddress, (void *) &glDrawElements, (void **) &old_glDrawElements);
     }
 }
 
