@@ -35,7 +35,7 @@ void PlayerUpdate (void *instance)
 
 void Hooks()
 {
-    ARMPatch::hook((void *) getAbsoluteAddress(LibraryToLoad, offsets->isPlayerUpdate), (void *) &PlayerUpdate, (void **)&old_PlayerUpdate);
+    ARMPatch::hook((void *) getAbsoluteAddress(LibraryToLoad, offsets->isPlayerUpdate), (void *) &PlayerUpdate, (void **) &old_PlayerUpdate);
 }
 
 #endif
