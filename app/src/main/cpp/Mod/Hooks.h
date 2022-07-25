@@ -1,7 +1,7 @@
 #ifndef HOOKS_H
 #define HOOKS_H
 
-#include "../Mod/Functions.h"
+#include "Functions.h"
 
 void (*old_PlayerUpdate)(void *instance);
 void PlayerUpdate (void *instance)
